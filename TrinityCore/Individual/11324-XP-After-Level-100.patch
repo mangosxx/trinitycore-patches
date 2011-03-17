@@ -1,0 +1,29 @@
+From 20cbfc73c31aa27c28f3df641301d6148bf36c2b Mon Sep 17 00:00:00 2001
+From: LordPsyan <uppp@juno.com>
+Date: Mon, 28 Feb 2011 15:47:48 -0500
+Subject: [PATCH] 11324-XP-After-Level-100
+
+---
+ src/server/game/World/World.cpp |    6 ------
+ 1 files changed, 0 insertions(+), 6 deletions(-)
+
+diff --git a/src/server/game/World/World.cpp b/src/server/game/World/World.cpp
+index 586a931..112c7d7 100755
+--- a/src/server/game/World/World.cpp
++++ b/src/server/game/World/World.cpp
+@@ -729,12 +729,6 @@ void World::LoadConfigSettings(bool reload)
+     else
+         m_int_configs[CONFIG_MAX_PLAYER_LEVEL] = sConfig->GetIntDefault("MaxPlayerLevel", DEFAULT_MAX_LEVEL);
+ 
+-    if (m_int_configs[CONFIG_MAX_PLAYER_LEVEL] > MAX_LEVEL)
+-    {
+-        sLog->outError("MaxPlayerLevel (%i) must be in range 1..%u. Set to %u.",m_int_configs[CONFIG_MAX_PLAYER_LEVEL],MAX_LEVEL,MAX_LEVEL);
+-        m_int_configs[CONFIG_MAX_PLAYER_LEVEL] = MAX_LEVEL;
+-    }
+-
+     m_int_configs[CONFIG_MIN_DUALSPEC_LEVEL] = sConfig->GetIntDefault("MinDualSpecLevel", 40);
+ 
+     m_int_configs[CONFIG_START_PLAYER_LEVEL] = sConfig->GetIntDefault("StartPlayerLevel", 1);
+-- 
+1.7.2.3
+

@@ -1,0 +1,34 @@
+From d358116f7c3d6123b147383c0d32ae4adb40e473 Mon Sep 17 00:00:00 2001
+From: LordPsyan <uppp@juno.com>
+Date: Fri, 25 Feb 2011 13:31:58 -0500
+Subject: [PATCH] 11303-Redemption
+
+---
+ .../scripts/EasternKingdoms/silvermoon_city.cpp    |    4 ++--
+ 1 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/src/server/scripts/EasternKingdoms/silvermoon_city.cpp b/src/server/scripts/EasternKingdoms/silvermoon_city.cpp
+index afb8bb1..17aa306 100644
+--- a/src/server/scripts/EasternKingdoms/silvermoon_city.cpp
++++ b/src/server/scripts/EasternKingdoms/silvermoon_city.cpp
+@@ -28,7 +28,7 @@ npc_blood_knight_stillblade
+ EndContentData */
+ 
+ #include "ScriptPCH.h"
+-
++#define NPC_BLOOD_KNIGHT_STILLBLADE    17768
+ /*#######
+ # npc_blood_knight_stillblade
+ #######*/
+@@ -90,7 +90,7 @@ public:
+             if ((Spellkind->Id == SPELL_SHIMMERING_VESSEL) && !spellHit &&
+                 (Hitter->GetTypeId() == TYPEID_PLAYER) && (CAST_PLR(Hitter)->IsActiveQuest(QUEST_REDEEMING_THE_DEAD)))
+             {
+-                CAST_PLR(Hitter)->AreaExploredOrEventHappens(QUEST_REDEEMING_THE_DEAD);
++                CAST_PLR(Hitter)->KilledMonsterCredit(NPC_BLOOD_KNIGHT_STILLBLADE, 0);
+                 DoCast(me, SPELL_REVIVE_SELF);
+                 me->SetStandState(UNIT_STAND_STATE_STAND);
+                 me->SetUInt32Value(UNIT_DYNAMIC_FLAGS, 0);
+-- 
+1.7.2.3
+
